@@ -2,20 +2,23 @@ terraform {
   required_providers {
     google = {
       source  = "hashicorp/google"
-      version = "5.13.0"
+      version = "5.6.0"
     }
   }
 }
 
 provider "google" {
-  project = "zoomcamp-0"
-  region  = "us-central1"
+  # credentials = file(var.credentials)
+  project     = var.project
+  region      = var.region
 }
 
-resource "google_storage_bucket" "bucket" {
-  name          = "zoomcamp-0-bucket"
-  location      = "US"
+
+resource "google_storage_bucket" "demo-bucket" {
+  name          = var.gcs_bucket_name
+  location      = var.location
   force_destroy = true
+
 
   lifecycle_rule {
     condition {
@@ -25,4 +28,11 @@ resource "google_storage_bucket" "bucket" {
       type = "AbortIncompleteMultipartUpload"
     }
   }
+}
+
+
+
+resource "google_bigquery_dataset" "demo_dataset" {
+  dataset_id = var.bq_dataset_name
+  location   = var.location
 }
