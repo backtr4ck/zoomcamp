@@ -1,6 +1,8 @@
 # data
 **/data/
+**/ny_taxi_data/
 gcp_key.json
+**/mage_data/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
