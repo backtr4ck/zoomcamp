@@ -20,7 +20,6 @@ blocks:
   configuration: {}
   downstream_blocks:
   - export
-  - gcloud
   executor_config: null
   executor_type: local_python
   has_callback: false
@@ -33,22 +32,6 @@ blocks:
   upstream_blocks:
   - load_green_taxi
   uuid: transform
-- all_upstream_blocks_executed: true
-  color: null
-  configuration: {}
-  downstream_blocks: []
-  executor_config: null
-  executor_type: local_python
-  has_callback: false
-  language: python
-  name: gcloud
-  retry_config: null
-  status: not_executed
-  timeout: null
-  type: data_exporter
-  upstream_blocks:
-  - transform
-  uuid: gcloud
 - all_upstream_blocks_executed: true
   color: null
   configuration: {}

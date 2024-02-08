@@ -39,10 +39,10 @@ default:
   # Google
   GOOGLE_SERVICE_ACC_KEY:
     type: service_account
-    project_id: project-id
-    private_key_id: key-id
-    private_key: "-----BEGIN PRIVATE KEY-----\nyour_private_key\n-----END_PRIVATE_KEY"
-    client_email: your_service_account_email
+    project_id: zoomcamp-0
+    private_key_id: 8bc0879662359d70448d63d993abf654fe0a439f
+    private_key: "{{ mage_secret_var('gcp_private_key') }}"
+    client_email: terraform@zoomcamp-0.iam.gserviceaccount.com
     auth_uri: "https://accounts.google.com/o/oauth2/auth"
     token_uri: "https://accounts.google.com/o/oauth2/token"
     auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs"

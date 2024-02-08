@@ -19,8 +19,8 @@ def export_data_to_google_cloud_storage(df: DataFrame, **kwargs) -> None:
     config_path = path.join(get_repo_path(), 'io_config.yaml')
     config_profile = 'default'
 
-    bucket_name = 'your_bucket_name'
-    object_key = 'your_object_key'
+    bucket_name = 'zoomcamp_homework2_bucket'
+    object_key = 'ny_data.parquet'
 
     GoogleCloudStorage.with_config(ConfigFileLoader(config_path, config_profile)).export(
         df,
