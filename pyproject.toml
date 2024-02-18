@@ -6,13 +6,14 @@ authors = ["Your Name <you@example.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = ">=3.11,<3.13"
 pandas = "^2.2.0"
 numpy = "^1.26.3"
 requests = "^2.31.0"
 sqlalchemy = "^2.0.25"
 ipykernel = "^6.29.0"
 psycopg2 = "^2.9.9"
+dlt = {extras = ["duckdb"], version = "^0.4.4"}
 
 
 [build-system]
