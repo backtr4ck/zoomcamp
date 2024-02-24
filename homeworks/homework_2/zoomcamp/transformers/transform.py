@@ -26,9 +26,7 @@ def transform(data, *args, **kwargs):
         s1 = re.sub('(.)([A-Z][a-z]+)', r'\1_\2', column_name)
         return re.sub('([a-z0-9])([A-Z])', r'\1_\2', s1).lower()
     
-    data = data[(data.trip_distance > 0) & (data.passenger_count > 0)]
     data['lpep_pickup_date'] = pd.to_datetime(data.lpep_pickup_datetime).dt.date
-    data.columns = [camel_to_snake(col) for col in data.columns]
     return data
 
 

@@ -13,14 +13,18 @@ def load_data_from_api(*args, **kwargs):
     Template for loading data from API
     """
     data = pd.DataFrame()
-    for month in [10,11,12]:
-        url = f'https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green/green_tripdata_2020-{month}.csv.gz'
-        response = requests.get(url)
-        content = io.BytesIO(response.content)
-        with gzip.open(content, 'rt', encoding='utf-8') as f:
-            _data = pd.read_csv(f, low_memory=False)
-            data = pd.concat([data, _data])
-
+    for year in [19,20,21]:
+        for month in ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']:
+            try:
+                url = f'https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green/green_tripdata_20{year}-{month}.csv.gz'
+                response = requests.get(url)
+                content = io.BytesIO(response.content)
+                with gzip.open(content, 'rt', encoding='utf-8') as f:
+                    _data = pd.read_csv(f, low_memory=False)
+                    data = pd.concat([data, _data])
+                    print(f"done {year}-{month}")
+            except:
+                pass
     return data
 
 
