@@ -1,0 +1,7 @@
+services:
+  spark-jupyter:
+    image: jupyter/all-spark-notebook:spark-3.5.0
+    volumes:
+      - ./sparkdata:/sparkdata
+    ports:
+      - 8888:8888
